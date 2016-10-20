@@ -1,15 +1,37 @@
 
-%slconvMat2Csv.m
+%slconvMatToCsv.m
 %
 % author : steeve laquitaine
 % purpose: convert mat variable to csv
-%   
-%  usage : 
+%
+%  usage :
 %
 %   %matfile contains myvariable
 %   matfile = load('FileName.mat');
-%   slconvMat2Csv('mycsv',matfile.myvariable)
+%   slconvMat2Csv('mycsv',myvariable,'cell')
+%
+%   or
+%
+%   slconvMat2Csv('mycsv',myvariable,'numeric')
 
-function  slconvMat2Csv(savedCSV,filename)
 
-csvwrite('FileName.csv', FileData.M);
+function slconvMatToCsv(savedCSV,filename,vartype)
+
+%case variable contains numeric
+if strcmp(vartype,'numeric')
+    csvwrite([savedCSV '.csv'], filename);    
+end
+
+%case variable contains cells
+if strcmp(vartype,'cell')    
+    %open .csv file and print each cell
+    %content in a separate cell of the csv
+    %table
+    fid = fopen([savedCSV '.csv'],'w');
+    repmat('%s,',length(filename)-1,1)
+    fprintf(fid,'%s \n',filename{1,:})
+    fclose(fid)
+end
+
+fprintf('%s %s %s \n','Variable has been printed in ',savedCSV,'.csv file in local path')
+ls
