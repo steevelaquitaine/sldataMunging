@@ -6,5 +6,4 @@ purpose : sets of codes to re-shape and transform datasets for use with various 
 
 List of functions 
 
-
-[slconvMat2Csv.m](sldataMunging/slconvMatToCsv.m) : convert matlab variable into a csv file saved in local directory.
+[slconvMat2Csv.m](sldataMunging/blob/master/slconvMatToCsv.m) : convert matlab variable into a csv file saved in local directory.
