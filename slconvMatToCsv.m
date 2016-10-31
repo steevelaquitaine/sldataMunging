@@ -28,8 +28,8 @@ if strcmp(vartype,'cell')
     %content in a separate cell of the csv
     %table
     fid = fopen([savedCSV '.csv'],'w');
-    repmat('%s,',length(filename)-1,1)
-    fprintf(fid,'%s \n',filename{1,:})
+    format = repmat('%s,',1,length(filename)-1);
+    fprintf(fid,[format '%s \n'],filename{1,:})
     fclose(fid)
 end
 
